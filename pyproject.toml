@@ -1,0 +1,42 @@
+[project]
+name = "myhtop"
+version = "0.1.0"
+description = "Solution for the prac-2 assignment"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "amsatop>=0.3.0",
+]
+
+[tool.ruff]
+# Match Black’s defaults
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle (style errors)
+    "F",   # pyflakes (logic errors, unused vars, imports)
+    "B",   # flake8-bugbear (common bugs/pitfalls)
+    "I",   # isort (import sorting)
+]
+
+ignore = [
+    "E501",  # line length (let Black handle wrapping)
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+    "ruff>=0.12.11",
+]
+
+[project.scripts]
+myhtop = "myhtop.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/myhtop"]
