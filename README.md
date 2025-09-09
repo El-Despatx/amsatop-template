@@ -7,7 +7,6 @@ A Python implementation of your own version of htop.
 Create and sync a virtual environment in the .venv folder:
 
 ```bash
-$ uv venv
 $ uv sync
 ```
 
