@@ -4,7 +4,7 @@ from myhtop.amsatop_solution import Amsatop
 
 
 def main():
-    # NOTE: You can change it to htop=None if you don't have the solution implemented 
+    # NOTE: You can change it to htop=None if you don't have the solution implemented
     # and you want to see a "fake" version of amsatop running
     # htop = Amsatop()
     htop = Amsatop()

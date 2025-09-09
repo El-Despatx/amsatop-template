@@ -7,8 +7,8 @@ A Python implementation of your own version of htop.
 Create and sync a virtual environment in the .venv folder:
 
 ```bash
-$ uv sync
 $ uv venv
+$ uv sync
 ```
 
 Activate the environment (if you have nushell or other type of shell, it will be different):
@@ -21,7 +21,7 @@ source .venv/bin/activate
 To run the myhtop program and see **all** the processes of your system, you may need sudo for system-level access:
 
 ```bash
-$ sudo uv run myhtop
+$ uv run myhtop
 ```
 
 ## 🧪 Running Tests
@@ -29,14 +29,14 @@ $ sudo uv run myhtop
 ### Run All Tests
 
 ```bash
-$ sudo uv run pytest
+$ uv run pytest
 ```
 
 ### Run Tests for a Specific Assignment
 Replace x with the appropriate assignment number (1, 2, or 3):
 
 ```bash
-$ sudo uv run pytest test/prac_2_x
+$ uv run pytest test/prac_2_x
 ```
 
 Examples:
