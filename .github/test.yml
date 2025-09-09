@@ -1,0 +1,25 @@
+name: Testing
+
+on: push
+
+jobs:
+    run:
+        name: "Run tests"
+        runs-on: ubuntu-latest
+
+        steps:
+        - uses: actions/checkout@v5
+
+        - name: Install uv
+          uses: astral-sh/setup-uv@v6
+          with:
+            enable-cache: true
+            cache-dependency-glob: uv.lock
+
+        - name: Set up Python
+          run: uv python install 3.13
+
+        - name: Run pytest
+          run: coverage run -m pytest  -v -s  
+        - name: Generate Coverage Report  
+          run: coverage report -m
