@@ -5,7 +5,7 @@ from amsatop import Htop, Process
 from myhtop.procfs.proc_fs import ProcFS
 
 
-class HtopLinux(Htop):
+class Amsatop(Htop):
     def __init__(self):
         super().__init__()
         self.procfs = ProcFS(proc_path=self.proc_folder)
