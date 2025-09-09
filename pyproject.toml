@@ -5,7 +5,7 @@ description = "Solution for the prac-2 assignment"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "amsatop>=1.0.0",
+    "amsatop>=2.0.1",
     "coverage>=7.10.6",
 ]
 

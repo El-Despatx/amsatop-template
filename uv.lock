@@ -4,15 +4,15 @@ requires-python = ">=3.13"
 
 [[package]]
 name = "amsatop"
-version = "1.0.0"
+version = "2.0.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pyfiglet" },
     { name = "textual" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ac/6e/bf83bc80e1057fa3d14c4b5def81593c873efb2143002a764a5cfa60be44/amsatop-1.0.0.tar.gz", hash = "sha256:867f333fadea5a9952082433f11c0f0551afe95340e15f7667c6667789ede77a", size = 31178, upload-time = "2025-09-09T10:38:30.005Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/96/92/bd9ed1fc5bc5dc042c1423745a48b2d39b73278c4080e07a275846257a97/amsatop-2.0.1.tar.gz", hash = "sha256:24a376d0e31d8d9cf51cc0252647f77ee10b1de44d0106fc7d641025b1275e4c", size = 31185, upload-time = "2025-09-09T18:57:10.123Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/5c/a8/c66c0fc77a9303aec77ee542de10bd062cc07c018556bc9eb3b18af4de8a/amsatop-1.0.0-py3-none-any.whl", hash = "sha256:ecc2366128e1b5dbc4f1d067e4197041e7d9e863ff669ca5691ade3f3a917656", size = 22917, upload-time = "2025-09-09T10:38:28.904Z" },
+    { url = "https://files.pythonhosted.org/packages/e5/71/1367b2d52c4be50d541d4ec3a48be577776c8e297b26687100b01dfac1c7/amsatop-2.0.1-py3-none-any.whl", hash = "sha256:4888474b1d466b076b7997d1d7d14bd4d6cf879f7bc170ee6c18a9a067469a9b", size = 22933, upload-time = "2025-09-09T18:57:08.903Z" },
 ]
 
 [[package]]
@@ -156,7 +156,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "amsatop", specifier = ">=1.0.0" },
+    { name = "amsatop", specifier = ">=2.0.1" },
     { name = "coverage", specifier = ">=7.10.6" },
 ]
 
