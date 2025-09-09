@@ -20,6 +20,6 @@ jobs:
           run: uv python install 3.13
 
         - name: Run pytest
-          run: coverage run -m pytest  -v -s  
+          run: uv run coverage run -m pytest  -v -s  
         - name: Generate Coverage Report  
-          run: coverage report -m
+          run: uv run coverage report -m
