@@ -8,7 +8,7 @@ def main():
     # and you want to see a "fake" version of amsatop running
     # htop = Amsatop()
     htop = Amsatop()
-    run_ui(htop=htop, refresh=2)
+    run_ui(htop=htop, refresh=120)
 
 
 if __name__ == "__main__":

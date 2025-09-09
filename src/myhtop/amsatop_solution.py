@@ -2,19 +2,22 @@ from typing import List
 
 from amsatop import Htop, Process
 
-from myhtop.procfs.proc_fs import ProcFS
+# TODO: Delete when needed
+from myhtop.procfs.teachers_solution import AmsatopTeachersSolution
 
 
 class Amsatop(Htop):
     def __init__(self):
         super().__init__()
-        self.procfs = ProcFS(proc_path=self.proc_folder)
 
     def get_processes(self) -> List[Process]:
-        return self.procfs.processes
+        raise NotImplementedError("Prac-2.1 implementation needed")
 
     def get_priorities(self) -> List[Process]:
-        return self.procfs.priorities
+        raise NotImplementedError("Prac-2.2 implementation needed")
 
     def get_hup(self) -> List[Process]:
-        return self.procfs.nohup
+        raise NotImplementedError("Prac-2.3 implementation needed")
+
+
+Amsatop = AmsatopTeachersSolution
