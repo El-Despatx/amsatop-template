@@ -14,7 +14,11 @@
       };
     in {
       devShells.${system}.default = pkgs.mkShell {
-        buildInputs = [ pkgs.uv ];
+        buildInputs = [ pkgs.uv pkgs.pkg-configUpstream pkgs.fuse3 pkgs.fuse];
+        shellHook = ''
+        export LD_LIBRARY_PATH=${pkgs.lib.getLib pkgs.fuse}/lib
+        export LIBFUSE_PATH=${pkgs.lib.getLib pkgs.fuse}/lib/libfuse.so"
+        '';
       };
     };
 }

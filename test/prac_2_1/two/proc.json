@@ -1,0 +1,6 @@
+{
+    "processes": [66665],
+    "threads": [66667],
+    "kthreads": [2],
+    "created_with_script": "Això no és necessari llegir-ho, però si teniu curiositat: https://gist.github.com/Pablito2020/46dc880daaec47db1de43a60e998c7a0"
+}
