@@ -16,6 +16,9 @@ jobs:
            enable-cache: true
            cache-dependency-glob: uv.lock
 
+       - name: Install libfuse
+         run: sudo apt install -y libfuse2t64
+
        - name: Set up Python
          run: uv python install 3.13
         
