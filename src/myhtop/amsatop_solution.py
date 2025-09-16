@@ -2,9 +2,6 @@ from typing import List
 
 from amsatop import Htop, Process
 
-# TODO: Delete when needed
-from myhtop.procfs.teachers_solution import AmsatopTeachersSolution
-
 
 class Amsatop(Htop):
     def __init__(self):
@@ -18,6 +15,3 @@ class Amsatop(Htop):
 
     def get_hup(self) -> List[Process]:
         raise NotImplementedError("Prac-2.3 implementation needed")
-
-
-Amsatop = AmsatopTeachersSolution

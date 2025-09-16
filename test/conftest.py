@@ -50,7 +50,6 @@ def with_proc_fs(proc_fs_path: str):
 
 
 class ProcFileSystemTest(Operations):
-
     def __init__(self, root):
         self.root = root
         self.proc_json_path = os.path.join(self.root, "proc.json")
@@ -76,9 +75,9 @@ class ProcFileSystemTest(Operations):
 
     def readdir(self, path, fh):
         full_path = self._full_path(path)
-        entries = ['.', '..']
+        entries = [".", ".."]
 
-        if path == '/':
+        if path == "/":
             try:
                 all_entries = os.listdir(full_path)
             except Exception as e:
@@ -86,7 +85,11 @@ class ProcFileSystemTest(Operations):
                 all_entries = []
 
             # Only show allowed entries (from processes + kthreads)
-            filtered = [e for e in all_entries if e in self.allowed_pids and os.path.isdir(os.path.join(full_path, e))]
+            filtered = [
+                e
+                for e in all_entries
+                if e in self.allowed_pids and os.path.isdir(os.path.join(full_path, e))
+            ]
             entries.extend(filtered)
         else:
             # Non-root paths: show real directory content
@@ -99,10 +102,19 @@ class ProcFileSystemTest(Operations):
     def getattr(self, path, fh=None):
         full_path = self._full_path(path)
         st = os.lstat(full_path)
-        return dict((key, getattr(st, key)) for key in ('st_atime', 'st_ctime',
-                                                        'st_gid', 'st_mode',
-                                                        'st_mtime', 'st_nlink',
-                                                        'st_size', 'st_uid'))
+        return dict(
+            (key, getattr(st, key))
+            for key in (
+                "st_atime",
+                "st_ctime",
+                "st_gid",
+                "st_mode",
+                "st_mtime",
+                "st_nlink",
+                "st_size",
+                "st_uid",
+            )
+        )
 
     def readlink(self, path):
         full_path = self._full_path(path)
