@@ -16,7 +16,7 @@ import uuid
 from multiprocessing import Process
 
 import pytest
-from fuse import Operations, FUSE
+from fuse import FUSE, Operations
 
 from myhtop.amsatop_solution import Amsatop
 

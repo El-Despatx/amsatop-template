@@ -1,7 +1,7 @@
-from test.conftest import with_proc_fs
 from amsatop import Process, TaskType
 
 from myhtop.amsatop_solution import Amsatop
+from test.conftest import with_proc_fs
 
 # First, test the 2.1 but with nohup!
 
