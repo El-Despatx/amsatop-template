@@ -1,0 +1,7 @@
+{
+  "processes": [17571, 17573],
+  "threads": [17575],
+  "kthreads": [],
+  "created_with_script": "Això no és necessari llegir-ho, però si teniu curiositat: https://gist.github.com/Pablito2020/319f51867817aae31038f0b47e241e73",
+  "notes": "Hem eliminat el thread 17574, donat que hi ha cops que podem llegir les tasks del procés i un cop intentem llegir el /proc/{id} el thread ja ha finalitzat. Hem de fer handle d'aquests tipus d'errors..."
+}

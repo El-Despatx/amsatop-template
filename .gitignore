@@ -13,3 +13,6 @@ wheels/
 # nix env and build
 .direnv
 result
+
+# Ignore coverage folder
+.coverage
