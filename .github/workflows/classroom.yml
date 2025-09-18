@@ -32,20 +32,48 @@ jobs:
           sudo apt-get install -y libfuse2t64
           uv sync --locked --all-extras --dev
 
-      - name: Python Test
-        id: all-test
-        uses: classroom-resources/autograding-io-grader@v1
+      - name: Test Prac-2.1
+        id: prac-1-test
+        uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: Run all tests
-          command: "uv run pytest -q --tb=no | grep FAILED | wc -l"
-          expected-output: "0"
-          comparison-method: exact
+          test-name: Run tests for prac_2_1
+          command: "uv run pytest test/prac_2_1"
+          timeout: 10
+          max-score: 20
+
+      - name: Test Prac-2.2
+        id: prac-2-test
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Run tests for prac_2_2
+          command: "uv run pytest test/prac_2_2"
           timeout: 10
           max-score: 10
+
+      - name: Test Prac-2.3
+        id: prac-3-test
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Run tests for prac_2_3
+          command: "uv run pytest test/prac_2_3"
+          timeout: 10
+          max-score: 20
+
+      - name: Check linter
+        id: linter-test
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Run linter
+          command: "uv run ruff check --output-format=github ."
+          timeout: 10
+          max-score: 5
 
       - name: Autograding Reporter
         uses: classroom-resources/autograding-grading-reporter@v1
         env:
-          ALL-TEST_RESULTS: "${{steps.all-test.outputs.result}}"
+          PRAC-1-TEST_RESULTS: "${{steps.prac-1-test.outputs.result}}"
+          PRAC-2-TEST_RESULTS: "${{steps.prac-2-test.outputs.result}}"
+          PRAC-3-TEST_RESULTS: "${{steps.prac-3-test.outputs.result}}"
+          LINTER-TEST_RESULTS: "${{steps.linter-test.outputs.result}}"
         with:
-          runners: all-test
+          runners: prac-1-test,prac-2-test,prac-3-test,linter-test
