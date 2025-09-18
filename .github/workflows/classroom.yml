@@ -1,0 +1,51 @@
+name: GitHub Classroom Workflow
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+
+permissions:
+  actions: read
+  checks: write
+  contents: read
+
+jobs:
+  autograding:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up uv (Python 3.13)
+        uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.13"
+          enable-cache: true
+          cache-local-path: ~/.cache/uv
+          cache-dependency-path: |
+            **/uv.lock
+            **/pyproject.toml
+
+      - name: Set up environment
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libfuse2t64
+          uv sync --locked --all-extras --dev
+
+      - name: Python Test
+        id: all-test
+        uses: classroom-resources/autograding-io-grader@v1
+        with:
+          test-name: Run all tests
+          command: "uv run pytest -q --tb=no | grep FAILED | wc -l"
+          expected-output: "0"
+          comparison-method: exact
+          timeout: 10
+          max-score: 10
+
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          ALL-TEST_RESULTS: "${{steps.all-test.outputs.result}}"
+        with:
+          runners: all-test
